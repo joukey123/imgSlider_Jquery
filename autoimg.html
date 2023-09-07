@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #gallery {
+        width: 1000px;
+        height: 590px;
+        margin: 100px auto;
+        overflow: hidden;
+        background-color: aqua;
+      }
+      #view {
+        width: 500%;
+        height: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      img {
+        width: 1000px;
+        height: 600px;
+        margin-top: -5px;
+        object-fit: fill;
+      }
+    </style>
+    <script>
+      $(() => {
+        //제이쿼리 시작
+        /* ============ 자동으로 사진 넘기기(오른쪽) ============ */
+        // let n = 0; // 사진갯수
+        // let pos = 0;
+        // const handleImgSlide = () => {
+        //   if (n < 4) {
+        //     n++;
+        //   } else {
+        //     n = 0;
+        //   }
+        //   pos = n * -1000;
+        //   $("#view").animate(
+        //     {
+        //       marginLeft: pos,
+        //     },
+        //     1000
+        //   );
+        // };
+        // setInterval(handleImgSlide, 5000);
+        /* ============ 버튼으로 사진 넘기기 ============ */
+        // let num = 0;
+        // let location = 0;
+        // const nextImg = () => {
+        //   if (num < 4) {
+        //     num++;
+        //   } else {
+        //     num = 0;
+        //   }
+        //   location = num * -1000;
+        //   $("#view").animate(
+        //     {
+        //       marginLeft: location,
+        //     },
+        //     1000
+        //   );
+        // };
+        // const prevImg = () => {
+        //   if (num <= 0) {
+        //     num = 4;
+        //   } else {
+        //     num--;
+        //   }
+        //   location = num * -1000;
+        //   $("#view").animate(
+        //     {
+        //       marginLeft: location,
+        //     },
+        //     1000
+        //   );
+        // };
+        // $("button:first").click(prevImg);
+        // $("button:last").click(nextImg);
+        /* ============ 자동으로 사진 넘기기(위쪽) ============ */
+        let n = 0; // 사진갯수
+        let pos = 0;
+        const handleImgSlide = () => {
+          if (n < 4) {
+            n++;
+          } else {
+            n = 0;
+          }
+          pos = n * -600;
+          $("#view").animate(
+            {
+              marginTop: pos,
+            },
+            1000
+          );
+        };
+        setInterval(handleImgSlide, 3000);
+      }); //제이쿼리 끝
+    </script>
+  </head>
+  <body>
+    <div id="gallery">
+      <!-- <button><</button>
+      <button>></button> -->
+
+      <ul id="view">
+        <li><img src="bgImg/1.jpg""></li>
+        <li><img src="bgImg/2.jpg""></li>
+        <li><img src="bgImg/3.jpg""></li>
+        <li><img src="bgImg/4.jpg""></li>
+        <li><img src="bgImg/5.jpg""></li>
+      </ul>
+    </div>
+  </body>
+</html>
